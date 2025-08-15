@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://wwillchen.github.io/al-folio/sitemap.xml
+Sitemap: https://wwillchen.github.io/home/sitemap.xml
