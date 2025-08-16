@@ -49,7 +49,9 @@
     </div>
 
     <!-- Footer -->
-    {% include footer.liquid %}
+    {% if site.footer_enabled != false %}
+      {% include footer.liquid %}
+    {% endif %}
 
     <!-- JavaScripts -->
     {% include scripts.liquid %}

@@ -2,7 +2,7 @@
 layout: page
 title: Projects
 permalink: /projects/
-description: A growing collection of your cool projects.
+description: Fun projects
 nav: true
 nav_order: 4
 redirect: /404.html

@@ -494,9 +494,9 @@ footer.fixed-bottom {
 }
 
 footer.sticky-bottom {
-  border-top: 1px solid var(--global-divider-color);
-  padding-top: 40px;
-  padding-bottom: 40px;
+  border-top: none; // removed divider line
+  padding-top: 0;   // remove extra spacing above footer
+  padding-bottom: 0;
   font-size: 0.9rem;
 
   .container {
