@@ -49,12 +49,7 @@
   --dropdown-border-color: var(--global-divider-color);
   --nav-hover-highlight: rgba(0, 132, 255, 0.18);
 
-  #light-toggle-system {
-    padding-left: 10px;
-    padding-top: 12px;
-    display: block;
-  }
-
+  // default icon visibility before JS sets data-theme-setting
   #light-toggle-dark {
     display: none;
   }
@@ -136,10 +131,6 @@ html[data-theme="dark"] {
 }
 
 html[data-theme-setting="dark"] {
-  #light-toggle-system {
-    display: none;
-  }
-
   #light-toggle-dark {
     padding-left: 10px;
     padding-top: 12px;
@@ -157,10 +148,6 @@ html[data-theme-setting="dark"] {
 }
 
 html[data-theme-setting="light"] {
-  #light-toggle-system {
-    display: none;
-  }
-
   #light-toggle-dark {
     display: none;
   }
