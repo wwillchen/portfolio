@@ -11,7 +11,7 @@ profile:
   more_info: >
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+social: false # includes social icons at the bottom of the page
 
 announcements:
   enabled: false # includes a list of news items
@@ -24,7 +24,17 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hey there! I'm an undergraduate student @ Duke. I am currently a research assistant in theoretical reinforcement learning advised by Prof. Mo Liu, Prof. Weitong Zhang, and Prof. Pan Xu. I also worked on robotics projects under Prof. Ron Parr.
+I'm an undergraduate student at Duke University. I work on theoretical reinforcement learning with Prof. Mo Liu, Prof. Weitong Zhang, and Prof. Pan Xu, and previously worked on robotics with Prof. Ron Parr.
 
-In the past, I worked as a [Imagine Cup Student](https://techcommunity.microsoft.com/t5/student-developer-blog/announcing-the-2024-imagine-cup-semifinalists/ba-p/4066101) at Microsoft on an AI story book project and a Data Science Intern at VR Business Brokers.
+## Selected highlights
+
+- Microsoft - Imagine Cup Student (Selected top 2%)
+  - Developed an AI storybook poject under Microsoft Mentorship: React Native frontend, Node.js/Express API, Dockerized services, and MongoDB Atlas.
+  - Integrated Azure OpenAI and Azure Cognitive Services (Text-to-Speech); implemented WebSocket streaming to reduce perceived latency.
+  - Deployed via containerized CI/CD to Azure App Service/Container Instances. [Microsoft Blog](https://techcommunity.microsoft.com/t5/student-developer-blog/announcing-the-2024-imagine-cup-semifinalists/ba-p/4066101) (Our project is called Aesop AI).
+
+- VR Business Brokers — Data Science Intern
+  - Engineered an ensemble of regularized linear models and gradient-boosted trees for business valuations.
+  - Deployed models used in 15+ acquisitions; automated document generation with a MongoDB-based data pipeline.
+  - Implemented end-to-end integrations between ingestion, model serving, and document generation
 

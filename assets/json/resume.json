@@ -64,7 +64,7 @@
       "url": "https://duke.edu/",
       "startDate": "2024-01-01",
       "endDate": "2024-05-01",
-      "summary": "Selected as one of the top 20 participants out of 984 teams in Microsoft's Imagine Cup; collaborated with Microsoft mentor Alfredo Deza to iterate an AI-driven, full‑stack storybook mobile application and lead system architecture and deployment.",
+      "summary": "Secured a Semifinalist position (Top 2% out of 984 teams), allowing us to work under Microsoft mentorship; worked under Alfredo Deza to iterate an AI-driven, full‑stack storybook mobile application and lead system architecture and deployment.",
       "highlights": [
         "Architected and implemented end-to-end system: React Native frontend, Node.js/Express API layer, Dockerized services, and MongoDB Atlas document store.",
         "Integrated Azure OpenAI and Azure Cognitive Services (Text-to-Speech) for generative narration and audio synthesis; implemented prompt engineering and server-side response validation.",
