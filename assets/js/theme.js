@@ -19,6 +19,17 @@ let setThemeSetting = (themeSetting) => {
   applyTheme();
 };
 
+// Update toggle button UI (aria state, label, title) when theme changes.
+let updateToggleUI = (theme) => {
+  const btn = document.getElementById("light-toggle");
+  if (!btn) return;
+  const isDark = theme === "dark";
+  const label = isDark ? "Switch to light theme" : "Switch to dark theme";
+  btn.setAttribute("aria-pressed", String(isDark));
+  btn.setAttribute("aria-label", label);
+  btn.title = label;
+};
+
 // Apply the computed dark or light theme to the website.
 let applyTheme = () => {
   let theme = determineComputedTheme();
@@ -54,6 +65,9 @@ let applyTheme = () => {
   }
 
   document.documentElement.setAttribute("data-theme", theme);
+
+  // Update toggle button state/label for accessibility
+  updateToggleUI(theme);
 
   // Add class to tables.
   let tables = document.getElementsByTagName("table");
@@ -275,8 +289,21 @@ let initTheme = () => {
   document.addEventListener("DOMContentLoaded", function () {
     const mode_toggle = document.getElementById("light-toggle");
 
+    if (!mode_toggle) return;
+
+    // Initialize aria state/label on first paint after DOM is ready
+    updateToggleUI(determineComputedTheme());
+
     mode_toggle.addEventListener("click", function () {
       toggleThemeSetting();
+    });
+
+    // Keyboard support
+    mode_toggle.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        toggleThemeSetting();
+      }
     });
   });
 

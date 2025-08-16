@@ -24,7 +24,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I'm an undergraduate student at Duke University. I work on theoretical reinforcement learning with Prof. Mo Liu, Prof. Weitong Zhang, and Prof. Pan Xu, and previously worked on robotics with Prof. Ron Parr.
+I'm an undergraduate student at Duke University. I am working on theoretical computer science research with Prof. Mo Liu, Prof. Weitong Zhang, and Prof. Pan Xu, and previously worked on robotics with Prof. Ron Parr.
 
 ### Recent highlights
 
