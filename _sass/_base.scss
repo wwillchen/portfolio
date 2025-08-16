@@ -246,24 +246,25 @@ ul.task-list input[type="checkbox"] {
 .navbar {
   box-shadow: none;
   border-bottom: 1px solid var(--global-divider-color);
-  background-color: var(--global-bg-color);
-  opacity: 0.95;
+  background-color: var(--navbar-bg-color);
+  opacity: 1; // solid background (no transparency)
 }
 
 .navbar .dropdown-menu {
-  background-color: var(--global-bg-color);
-  border: 1px solid var(--global-divider-color);
+  background-color: var(--dropdown-bg-color);
+  border: 1px solid var(--dropdown-border-color);
 
   a:not(.active) {
     color: var(--global-text-color);
   }
 
   a:hover {
-    color: var(--global-hover-color);
+    color: var(--global-hover-text-color);
+    background-color: var(--dropdown-hover-bg-color);
   }
 
   .dropdown-divider {
-    border-top: 1px solid var(--global-divider-color) !important;
+    border-top: 1px solid var(--dropdown-border-color) !important;
   }
 }
 
@@ -272,7 +273,7 @@ ul.task-list input[type="checkbox"] {
 
   &:hover {
     color: var(--global-hover-color);
-    background-color: var(--global-bg-color);
+    background-color: var(--dropdown-hover-bg-color);
   }
 }
 
@@ -285,23 +286,64 @@ ul.task-list input[type="checkbox"] {
 
   .navbar-brand {
     color: var(--global-text-color);
+    font-size: 1.6rem; // bigger name on top-left
+    font-weight: 600;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--global-theme-color); // match accent color
+      text-decoration: none;
+    }
   }
 
   .navbar-nav .nav-item .nav-link {
     color: var(--global-text-color);
+    padding: 0.35rem 0.7rem;
+    border-radius: 10px;
+    position: relative;
+    z-index: 0; // create stacking context so the pseudo element can sit behind
+    transition: color 0.2s ease;
+    display: inline-block;
+    font-size: 1.25rem; // larger nav labels (About, CV, Projects)
+    font-weight: 500;
+    line-height: 1.15;
+
+    // remove previous gradient-based highlight
+    background-image: none;
+
+    // marker-style rounded highlight behind text (refined centering)
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0.15rem;
+      right: 0.15rem;
+      top: 58%;
+      height: 0.7em; // natural highlighter thickness
+      transform: translateY(-50%) scaleX(0);
+      transform-origin: left center;
+      background-color: var(--nav-hover-highlight);
+      border-radius: 12px;
+      transition: transform 220ms ease-in-out;
+      z-index: -1; // sit behind the text
+      pointer-events: none;
+    }
 
     &:hover {
-      color: var(--global-hover-color);
+      color: var(--global-text-color);
+
+      &::before {
+        transform: translateY(-50%) scaleX(1);
+      }
     }
   }
 
   .navbar-nav .nav-item.active > .nav-link {
-    background-color: inherit;
-    font-weight: bolder;
-    color: var(--global-theme-color);
+    background-color: transparent; // highlight handled by ::before
+    font-weight: 700;
+    color: var(--global-text-color);
 
-    &:hover {
-      color: var(--global-hover-color);
+    &::before {
+      transform: translateY(-50%) scaleX(1);
     }
   }
 
@@ -351,9 +393,22 @@ ul.task-list input[type="checkbox"] {
     background-color: var(--global-text-color);
     border-radius: 1px;
     margin-bottom: 4px;
-    transition: all 0.2s;
+    transition: transform 0.2s, opacity 0.2s;
   }
 
+  // default (collapsed) appearance: three horizontal bars
+  .top-bar,
+  .bottom-bar {
+    transform: rotate(0);
+  }
+
+  .middle-bar {
+    opacity: 1;
+  }
+}
+
+// expanded (not collapsed) appearance: animate to “X”
+.navbar-toggler:not(.collapsed) {
   .top-bar {
     transform: rotate(45deg);
     transform-origin: 10% 10%;
@@ -366,20 +421,6 @@ ul.task-list input[type="checkbox"] {
   .bottom-bar {
     transform: rotate(-45deg);
     transform-origin: 10% 90%;
-  }
-}
-
-.navbar-toggler.collapsed {
-  .top-bar {
-    transform: rotate(0);
-  }
-
-  .middle-bar {
-    opacity: 1;
-  }
-
-  .bottom-bar {
-    transform: rotate(0);
   }
 }
 
@@ -734,9 +775,6 @@ footer.sticky-bottom {
 
     li {
       margin-bottom: 1rem;
-
-      .preview {
-      }
 
       .abbr {
         margin-bottom: 0.5rem;

@@ -78,6 +78,7 @@ ninja.data = [
       },
     {%- endfor -%}
   {%- endif -%}
+  {%- if site.collections_in_search -%}
   {%- for collection in site.collections -%}
     {%- if collection.label != 'posts' -%}
       {%- for item in collection.docs -%}
@@ -100,6 +101,7 @@ ninja.data = [
       {%- endfor -%}
     {%- endif -%}
   {%- endfor -%}
+  {%- endif -%}
   {%- if site.socials_in_search -%}
     {%- for social in site.data.socials -%}
       {%- case social[0] -%}
@@ -301,7 +303,7 @@ ninja.data = [
       },
     {%- endfor -%}
   {%- endif -%}
-  {%- if site.enable_darkmode -%}
+  {%- if site.enable_darkmode and site.theme_controls_in_search -%}
     {
       id: 'light-theme',
       title: 'Change theme to light',

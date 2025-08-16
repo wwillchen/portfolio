@@ -26,14 +26,18 @@ latest_posts:
 
 I'm an undergraduate student at Duke University. I work on theoretical reinforcement learning with Prof. Mo Liu, Prof. Weitong Zhang, and Prof. Pan Xu, and previously worked on robotics with Prof. Ron Parr.
 
-## Selected highlights
+### Recent highlights
 
-- Microsoft - Imagine Cup Student (Selected top 2%) (Jan 2024 - May 2024)
+- **Microsoft - Imagine Cup Student (Selected top 2%) (Jan 2024 - May 2024)**
   - Developed an AI storybook poject under Microsoft Mentorship: React Native frontend, Node.js/Express API, Dockerized services, and MongoDB Atlas.
   - Integrated Azure OpenAI and Azure Cognitive Services (Text-to-Speech); implemented WebSocket streaming to reduce perceived latency.
   - Deployed via containerized CI/CD to Azure App Service/Container Instances. [Microsoft Blog](https://techcommunity.microsoft.com/t5/student-developer-blog/announcing-the-2024-imagine-cup-semifinalists/ba-p/4066101) (Our project is called Aesop AI).
 
-- VR Business Brokers — Data Science Intern (May 2022 - Aug 2023)
+- **Undergraduate Math Paper (May 2023 - Sept 2023)**
+  - Paper on the convergence of stochastic algorithms via dynamical stability; modeling RMSprop and Adagrad with SDEs.
+  - Presented at [Duke's Undergraduate Research Session](https://math.duke.edu/mathplus/2023/analysis-preconditioned-stochastic-gradient-descent-non-convex-loss) and [preprint](https://drive.google.com/file/d/1DzCp1UvJ2WvOjagMg82dgfudwKbwFxc-/view?usp=sharing) 
+
+- **VR Business Brokers — Data Science Intern (May 2022 - Aug 2023)**
   - Engineered an ensemble of regularized linear models and gradient-boosted trees for business valuations.
   - Deployed models used in 15+ acquisitions; automated document generation with a MongoDB-based data pipeline.
   - Implemented end-to-end integrations between ingestion, model serving, and document generation

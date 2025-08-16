@@ -1,54 +1,38 @@
-<ul class="card-text font-weight-light list-group list-group-flush">
-  {% assign education = data[1] | sort: 'startDate' | reverse %}
-  {% for content in education %}
-    <li class="list-group-item">
-      <div class="row">
-        <div class="col-xs-2 cl-sm-2 col-md-2 text-center date-column">
-          {% if content.startDate and content.startDate != '' %}
-            {% assign startDate = content.startDate | split: '-' | slice: 0, 2 | join: '.' %}
-            {% assign endDate = content.endDate | split: '-' | slice: 0, 2 | join: '.' | default: 'Present' %}
-            {% assign date = startDate | append: ' - ' %}
-            {% assign date = date | append: endDate %}
-          {% else %}
-            {% assign date = null %}
-          {% endif %}
-          <table class="table-cv">
-            <tbody>
-              <tr>
-                <td>
-                  {% if date %}
-                    <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px"> {{ date }} </span>
-                  {% endif %}
-                </td>
-              </tr>
-              {% if content.location %}
-                <tr>
-                  <td>
-                    <p class="location">
-                      <i class="fa-solid fa-location-dot iconlocation"></i>
-                      {{ content.location }}
-                    </p>
-                  </td>
-                </tr>
-              {% endif %}
-            </tbody>
-          </table>
+{%- comment -%}
+Education list for revamped CV page.
+Supports two inputs:
+- legacy: variable `data` where data[1] is the array of educations
+- preferred: include.items is the array
+{%- endcomment -%}
+{%- assign items = include.items | default: data[1] -%}
+{%- if items and items != empty -%}
+  {%- assign items = items | sort: 'startDate' | reverse -%}
+{%- endif -%}
+
+{%- if items and items != empty -%}
+<ul class="cv-list">
+  {%- for content in items -%}
+    {%- assign startDate = content.startDate | date: "%B %Y" -%}
+    {%- assign endRaw = content.endDate | default: 'Present' -%}
+    {%- if endRaw == 'Present' -%}
+      {%- assign endDate = 'Present' -%}
+    {%- else -%}
+      {%- assign endDate = endRaw | date: "%B %Y" -%}
+    {%- endif -%}
+    <li class="cv-item">
+      <div class="cv-row">
+        <div class="cv-title">
+          <span class="cv-entity">{{ content.institution | strip_html }}</span>
+          {%- if content.studyType -%}
+            <span class="cv-pill">{{ content.studyType | strip_html }}</span>
+          {%- endif -%}
         </div>
-        <div class="col-xs-10 cl-sm-10 col-md-10 mt-2 mt-md-0">
-          <h6 class="title font-weight-bold ml-1 ml-md-4">
-            <a href="{{ content.url }}">{{ content.studyType }}</a>
-          </h6>
-          <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">{{ content.institution }}</h6>
-          <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; font-style: italic">{{ content.area }}</h6>
-          <ul class="items">
-            {% for item in content.courses %}
-              <li>
-                <span class="item">{{ item }}</span>
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
+        <div class="cv-date">{{ startDate }} – {{ endDate }}</div>
       </div>
+      {%- if content.area -%}
+        <div class="cv-subtitle">{{ content.area | strip_html }}</div>
+      {%- endif -%}
     </li>
-  {% endfor %}
+  {%- endfor -%}
 </ul>
+{%- endif -%}

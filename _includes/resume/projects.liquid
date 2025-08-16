@@ -1,32 +1,49 @@
-<ul class="card-text font-weight-light list-group list-group-flush">
-  {% for content in data[1] %}
-    <li class="list-group-item">
-      <div class="row">
-        <div class="col-xs-2 cl-sm-2 col-md-2 text-center date-column">
-          {% if content.startDate %}
-            {% assign startDate = content.startDate | split: '-' | slice: 0, 2 | join: '.' %}
-            {% assign endDate = content.endDate | split: '-' | slice: 0, 2 | join: '.' | default: 'Present' %}
-            {% assign date = startDate | append: ' - ' %}
-            {% assign date = date | append: endDate %}
-          {% else %}
-            {% assign date = '' %}
-          {% endif %}
-          <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px"> {{ date }} </span>
-        </div>
-        <div class="col-xs-10 cl-sm-10 col-md-10 mt-2 mt-md-0">
-          <h6 class="title font-weight-bold ml-1 ml-md-4">
-            <a href="{{ content.url }}">{{ content.name }}</a>
-          </h6>
-          <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; font-style: italic">{{ content.summary }}</h6>
-          <ul class="items">
-            {% for item in content.highlights %}
-              <li>
-                <span class="item">{{ item }}</span>
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
+{%- comment -%}
+Projects grid for revamped CV page.
+Supports legacy `data` pair (data[1]) or include.items.
+{%- endcomment -%}
+{%- assign items = include.items | default: data[1] -%}
+{%- if items and items != empty -%}
+<div class="cv-projects-grid">
+  {%- for content in items -%}
+    <article class="cv-project-card">
+      <div class="cv-project-header">
+        <h3 class="cv-project-title">
+          {%- if content.url -%}
+            <a href="{{ content.url }}" target="_blank" rel="noopener">{{ content.name }}</a>
+          {%- else -%}
+            {{ content.name }}
+          {%- endif -%}
+        </h3>
+        {%- if content.startDate or content.endDate -%}
+          {%- assign startDate = content.startDate | date: "%b %Y" -%}
+          {%- assign endRaw = content.endDate | default: 'Present' -%}
+          {%- if endRaw == 'Present' -%}
+            {%- assign endDate = 'Present' -%}
+          {%- else -%}
+            {%- assign endDate = endRaw | date: "%b %Y" -%}
+          {%- endif -%}
+          <div class="cv-project-meta">{{ startDate }} – {{ endDate }}</div>
+        {%- endif -%}
       </div>
-    </li>
-  {% endfor %}
-</ul>
+      {%- if content.summary -%}
+        <div class="cv-project-summary">{{ content.summary }}</div>
+      {%- endif -%}
+      {%- if content.highlights and content.highlights.size > 0 -%}
+        <ul class="cv-item-details" style="display:block; margin-top:0.5rem;">
+          {%- for item in content.highlights -%}
+            <li>{{ item }}</li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+      {%- if content.keywords and content.keywords.size > 0 -%}
+        <div class="cv-project-tags">
+          {%- for tag in content.keywords -%}
+            <span class="cv-tag">{{ tag }}</span>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </article>
+  {%- endfor -%}
+</div>
+{%- endif -%}

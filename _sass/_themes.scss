@@ -43,6 +43,12 @@
   --global-danger-block-text: #600;
   --global-danger-block-title: #c00;
 
+  --navbar-bg-color: #ffffff;
+  --dropdown-bg-color: #ffffff;
+  --dropdown-hover-bg-color: rgba(0, 0, 0, 0.04);
+  --dropdown-border-color: var(--global-divider-color);
+  --nav-hover-highlight: rgba(0, 132, 255, 0.18);
+
   #light-toggle-system {
     padding-left: 10px;
     padding-top: 12px;
@@ -113,6 +119,12 @@ html[data-theme="dark"] {
   --global-danger-block-bg: #ffe0e0;
   --global-danger-block-text: #600;
   --global-danger-block-title: #c00;
+
+  --navbar-bg-color: var(--global-card-bg-color);
+  --dropdown-bg-color: var(--global-card-bg-color);
+  --dropdown-hover-bg-color: rgba(255, 255, 255, 0.06);
+  --dropdown-border-color: var(--global-divider-color);
+  --nav-hover-highlight: rgba(14, 165, 233, 0.25);
 
   .only-light {
     display: none;

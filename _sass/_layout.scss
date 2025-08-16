@@ -13,7 +13,12 @@ body {
   h4,
   h5,
   h6 {
+    color: var(--global-text-color);
     scroll-margin-top: 66px;
+  }
+
+  a {
+    color: var(--global-hover-color);
   }
 }
 

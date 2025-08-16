@@ -2,12 +2,11 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: William Xingxu Chen # the website title (if blank, full name will be used instead)
+title: Xingxu (Will) Chen # the website title (if blank, full name will be used instead)
 first_name: William
-middle_name: Xingxu
+middle_name:
 last_name: Chen
-description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+description: "" # intentionally blank to remove default social/meta description
 footer_text: >
  
 keywords: jekyll, jekyll-theme, academic-website, portfolio-website # add your own keywords or leave empty
@@ -45,9 +44,12 @@ navbar_fixed: true
 footer_fixed: false
 footer_enabled: false
 search_enabled: true
-socials_in_search: true
-posts_in_search: true
+socials_in_search: false
+posts_in_search: false
 bib_search: true
+collections_in_search: false
+theme_controls_in_search: false
+show_search_toggle: false # hide ctrl+k button in navbar
 
 # Dimensions
 max_width: 930px
@@ -625,8 +627,6 @@ jekyll_get_json:
     json: assets/json/resume.json # it can also be an url
 
 jsonresume:
-  - basics
   - education
   - work
   - projects
-  - publications
