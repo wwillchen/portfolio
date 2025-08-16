@@ -24,7 +24,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hey there! I'm a undergraduate student @ Duke. I am currently a research assistant in the field theortical reinforcement learning advised by Prof. Mo Liu, Weitong Zhang, and Pan Xu. I also worked on robotics projects under Prof. Ron Parr. 
+Hey there! I'm an undergraduate student @ Duke. I am currently a research assistant in theoretical reinforcement learning advised by Prof. Mo Liu, Prof. Weitong Zhang, and Prof. Pan Xu. I also worked on robotics projects under Prof. Ron Parr.
 
-in the past, I was a data science intern at VR Business Brokers, where we
+In the past, I worked as a [Imagine Cup Student](https://techcommunity.microsoft.com/t5/student-developer-blog/announcing-the-2024-imagine-cup-semifinalists/ba-p/4066101) at Microsoft on an AI story book project and a Data Science Intern at VR Business Brokers.
 
